@@ -37,28 +37,6 @@ public class DoublyLinkedList {
         last = newLink;
     }
 
-    public Link deleteFirst() {
-        Link temp = first;
-        if (first.next == null) {
-            last = null;
-        } else {
-            first.next.previous = null;
-        }
-        first = first.next;
-        return temp;
-    }
-
-    public Link deleteLast() {
-        Link temp = last;
-        if (first.next == null) {
-            first = null;
-        } else {
-            last.previous.next = null;
-        }
-        last = last.previous;
-        return temp;
-    }
-
     public boolean insertAfter(long key, long dd) {
         Link current = first;
         while (current.dData != key) {
@@ -82,28 +60,17 @@ public class DoublyLinkedList {
         return true;
     }
 
-    public Link deleteKey(long key) {
+    public void invertir(){
         Link current = first;
-        while (current.dData != key) {
-            current = current.next;
-            if (current == null) {
-                return null;
-            }
-        }
-        if (current == first) {
-            first = current.next;
-        } else {
-            current.previous.next = current.next;
-        }
+        while (current != null && current.next != null) {
+            long temp = current.dData;
+            current.dData = current.next.dData;
+            current.next.dData = temp;
 
-        if (current == last) {
-            last = current.previous;
-        } else {
-            current.next.previous = current.previous;
+            current = current.next.next;
         }
-        return current;
     }
-
+    
     public void displayForward() {
         System.out.print("List (first-->last): ");
         Link current = first;
