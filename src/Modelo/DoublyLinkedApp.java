@@ -50,8 +50,12 @@ class DoublyLinkedApp {
                 case 2 -> {
                     System.out.println("Mostrando la lista...");
                     theList.displayForward();
+                    long tiempoInicial = System.nanoTime();
                     theList.invertir();
+                    long tiempoFinal = System.nanoTime();
                     theList.displayForward();
+                    long duracion = tiempoFinal-tiempoInicial;
+                    System.out.println("\nDuración: "+duracion);
                     theList.invertir();
                 }
 

@@ -72,21 +72,11 @@ public class DoublyLinkedList {
     }
     
     public void displayForward() {
-        System.out.print("List (first-->last): ");
+        System.out.print("List: ");
         Link current = first;
         while (current != null) {
             current.displayLink();
             current = current.next;
-        }
-        System.out.println("");
-    }
-
-    public void displayBackward() {
-        System.out.print("List (last-->first): ");
-        Link current = last;
-        while (current != null) {
-            current.displayLink();
-            current = current.previous;
         }
         System.out.println("");
     }
